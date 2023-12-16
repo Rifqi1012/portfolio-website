@@ -39,3 +39,25 @@ contactForm.addEventListener("submit", function (e) {
     })
     .catch((e) => alert("error occured"));
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll("nav a");
+
+  navLinks.forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: "smooth",
+          duration: 3000,
+        });
+        window.scrollTo(scrollToOptions);
+      }
+    });
+  });
+});
